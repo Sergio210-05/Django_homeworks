@@ -7,8 +7,8 @@ DATA = {
         'соль, ч.л.': 0.5,
     },
     'pasta': {
-        'макароны, г': 0.3,
-        'сыр, г': 0.05,
+        'макароны, кг': 0.3,
+        'сыр, кг': 0.05,
     },
     'buter': {
         'хлеб, ломтик': 1,
@@ -28,3 +28,19 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+
+
+def main_page(request):
+    return render(request, template_name='calculator/main_page.html')
+
+
+def recipe_calculation(request, food):
+    print("request =", request)
+    quantity = int(request.GET.get('serving', 1))
+    context = {
+        # 'recipe': DATA[food],
+        'recipe': {k: v * quantity for k, v in DATA[food].items()},
+        'quantity': quantity,
+    }
+    print(context)
+    return render(request, template_name='calculator/index.html', context=context)
