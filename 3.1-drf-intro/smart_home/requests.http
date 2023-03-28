@@ -20,11 +20,11 @@ Content-Type: application/json
 ###
 
 # обновление датчика
-PATCH {{baseUrl}}/sensors/1/
+PATCH {{baseUrl}}/sensors/16/
 Content-Type: application/json
 
 {
-  "description": "Перенес датчик на балкон"
+  "description": "Перенес датчик на подоконник"
 }
 
 ###
@@ -34,8 +34,9 @@ POST {{baseUrl}}/measurements/
 Content-Type: application/json
 
 {
-  "sensor": 1,
-  "temperature": 22.3
+  "sensor": 19,
+  "temperature": 20.0,
+  "image": "C:\\Сергей\\Python\\Курс Нетология\\Django\\dj-homeworks\\3.1-drf-intro\\smart_home\\image\\YEoB7y8OVWyU4gyrxwyfxX2aAY4-1920.jpg"
 }
 
 ###
