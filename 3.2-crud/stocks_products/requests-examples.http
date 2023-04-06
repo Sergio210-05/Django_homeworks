@@ -7,11 +7,23 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Помидор",
-  "description": "Лучшие помидоры на рынке"
+  "title": "Баранина",
+  "description": "Тоже молодой"
 }
 
 ###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Огурец",
+  "description": "Огурец свежий, а ты нет"
+}
+
+###
+
 
 # получение продуктов
 GET {{baseUrl}}/products/
@@ -63,6 +75,35 @@ Content-Type: application/json
 
 ###
 
+# получить склады
+GEt {{baseUrl}}/stocks/
+Content-Type: application/json
+
+###
+
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "ул. Красивых молдавских партизан, 34",
+  "positions": [
+    {
+      "product": 3,
+      "quantity": 50,
+      "price": 200
+    }
+  ]
+}
+
+###
+
+# удаление склада
+DELETE {{baseUrl}}/stocks/3/
+Content-Type: application/json
+
+###
+
 # обновляем записи на складе
 PATCH {{baseUrl}}/stocks/4/
 Content-Type: application/json
@@ -85,5 +126,29 @@ Content-Type: application/json
 ###
 
 # поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?products=2
+GET {{baseUrl}}/stocks/?products=3
+Content-Type: application/json
+
+###
+
+# поиск продуктов по названию
+GET {{baseUrl}}/products/?title=Помидор
+Content-Type: application/json
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?search=помид
+Content-Type: application/json
+
+###
+
+# получение продуктов
+GET {{baseUrl}}/products/?limit=2&offset=2
+Content-Type: application/json
+
+###
+
+# получение складов
+GET {{baseUrl}}/stocks/?limit=1&offset=1
 Content-Type: application/json
