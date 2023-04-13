@@ -106,4 +106,3 @@ def test_course_delete(client, url, course_factory):
 
     assert response_delete.status_code == 204
     assert response.status_code == 404
-

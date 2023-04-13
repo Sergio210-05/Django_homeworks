@@ -99,13 +99,13 @@ Content-Type: application/json
 ###
 
 # удаление склада
-DELETE {{baseUrl}}/stocks/3/
+DELETE {{baseUrl}}/stocks/5/
 Content-Type: application/json
 
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+PATCH {{baseUrl}}/stocks/7/
 Content-Type: application/json
 
 {
@@ -113,12 +113,12 @@ Content-Type: application/json
     {
       "product": 2,
       "quantity": 100,
-      "price": 130.80
+      "price": 1300.80
     },
     {
       "product": 3,
       "quantity": 243,
-      "price": 145
+      "price": 1400
     }
   ]
 }
