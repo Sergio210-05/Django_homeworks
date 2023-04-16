@@ -33,10 +33,11 @@ def student_factory():
 @pytest.mark.django_db
 def test_retrieve(client, url, course_factory):
     first_course = course_factory()
-    response = client.get(url)
+    url_id = url + str(first_course.id) + '/'
+    response = client.get(url_id)
 
     assert response.status_code == 200
-    assert response.json()[first_course.id-1]['name'] == first_course.name
+    assert response.json()['name'] == first_course.name
 
 
 @pytest.mark.django_db
